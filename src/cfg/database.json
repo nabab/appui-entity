@@ -1,0 +1,342 @@
+{
+    "bbn_addresses": {
+        "keys": {
+            "PRIMARY": {
+                "columns": [
+                    "id"
+                ],
+                "ref_db": "apst_app",
+                "ref_table": "bbn_history_uids",
+                "ref_column": "bbn_uid",
+                "constraint": "bbn_addresses_ibfk_1",
+                "update": "CASCADE",
+                "delete": "CASCADE",
+                "unique": 1
+            },
+            "cp": {
+                "columns": [
+                    "cp"
+                ],
+                "ref_db": null,
+                "ref_table": null,
+                "ref_column": null,
+                "constraint": null,
+                "update": null,
+                "delete": null,
+                "unique": 0
+            },
+            "ville": {
+                "columns": [
+                    "ville"
+                ],
+                "ref_db": null,
+                "ref_table": null,
+                "ref_column": null,
+                "constraint": null,
+                "update": null,
+                "delete": null,
+                "unique": 0
+            },
+            "email": {
+                "columns": [
+                    "email"
+                ],
+                "ref_db": null,
+                "ref_table": null,
+                "ref_column": null,
+                "constraint": null,
+                "update": null,
+                "delete": null,
+                "unique": 0
+            },
+            "tel": {
+                "columns": [
+                    "tel"
+                ],
+                "ref_db": null,
+                "ref_table": null,
+                "ref_column": null,
+                "constraint": null,
+                "update": null,
+                "delete": null,
+                "unique": 0
+            },
+            "fax": {
+                "columns": [
+                    "fax"
+                ],
+                "ref_db": null,
+                "ref_table": null,
+                "ref_column": null,
+                "constraint": null,
+                "update": null,
+                "delete": null,
+                "unique": 0
+            },
+            "id_country": {
+                "columns": [
+                    "id_country"
+                ],
+                "ref_db": null,
+                "ref_table": null,
+                "ref_column": null,
+                "constraint": null,
+                "update": null,
+                "delete": null,
+                "unique": 0
+            }
+        },
+        "cols": {
+            "id": [
+                "PRIMARY"
+            ],
+            "cp": [
+                "cp"
+            ],
+            "ville": [
+                "ville"
+            ],
+            "email": [
+                "email"
+            ],
+            "tel": [
+                "tel"
+            ],
+            "fax": [
+                "fax"
+            ],
+            "id_country": [
+                "id_country"
+            ]
+        },
+        "fields": {
+            "id": {
+                "position": 1,
+                "type": "binary",
+                "null": 0,
+                "key": "PRI",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "maxlength": 16
+            },
+            "adresse": {
+                "position": 2,
+                "type": "tinytext",
+                "null": 0,
+                "key": null,
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": ""
+            },
+            "cp": {
+                "position": 3,
+                "type": "varchar",
+                "null": 0,
+                "key": "MUL",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "maxlength": 5
+            },
+            "ville": {
+                "position": 4,
+                "type": "varchar",
+                "null": 0,
+                "key": "MUL",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "maxlength": 40
+            },
+            "id_country": {
+                "position": 5,
+                "type": "binary",
+                "null": 1,
+                "key": "MUL",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL",
+                "maxlength": 16
+            },
+            "tel": {
+                "position": 6,
+                "type": "varchar",
+                "null": 1,
+                "key": "MUL",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL",
+                "maxlength": 10
+            },
+            "fax": {
+                "position": 7,
+                "type": "varchar",
+                "null": 1,
+                "key": "MUL",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL",
+                "maxlength": 10
+            },
+            "email": {
+                "position": 8,
+                "type": "varchar",
+                "null": 1,
+                "key": "MUL",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL",
+                "maxlength": 100
+            },
+            "fulladdress": {
+                "position": 9,
+                "type": "text",
+                "null": 1,
+                "key": null,
+                "extra": "VIRTUAL GENERATED",
+                "signed": true,
+                "virtual": true,
+                "generation": "concat(`adresse`,'\\n',`cp`,' ',`ville`)",
+                "default": "NULL"
+            }
+        }
+    },
+    "bbn_people": {
+        "keys": {
+            "PRIMARY": {
+                "columns": [
+                    "id"
+                ],
+                "ref_db": "apst_app",
+                "ref_table": "bbn_history_uids",
+                "ref_column": "bbn_uid",
+                "constraint": "bbn_people_ibfk_1",
+                "update": "CASCADE",
+                "delete": "CASCADE",
+                "unique": 1
+            }
+        },
+        "cols": {
+            "id": [
+                "PRIMARY"
+            ]
+        },
+        "fields": {
+            "id": {
+                "position": 1,
+                "type": "binary",
+                "null": 0,
+                "key": "PRI",
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "maxlength": 16
+            },
+            "nom": {
+                "position": 2,
+                "type": "varchar",
+                "null": 0,
+                "key": null,
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "maxlength": 100
+            },
+            "prenom": {
+                "position": 3,
+                "type": "varchar",
+                "null": 0,
+                "key": null,
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "",
+                "maxlength": 25
+            },
+            "civilite": {
+                "position": 4,
+                "type": "enum",
+                "null": 1,
+                "key": null,
+                "extra": "'M','MME','MLLE','M\/MME','ME','MMES','MM','I'",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL",
+                "values": [
+                    "M",
+                    "MME",
+                    "MLLE",
+                    "M\/MME",
+                    "ME",
+                    "MMES",
+                    "MM",
+                    "I"
+                ]
+            },
+            "fullname": {
+                "position": 5,
+                "type": "varchar",
+                "null": 1,
+                "key": null,
+                "extra": "VIRTUAL GENERATED",
+                "signed": true,
+                "virtual": true,
+                "generation": "trim(concat(ifnull(`civilite`,''),' ',`prenom`,' ',`nom`))",
+                "default": "NULL",
+                "maxlength": 255
+            },
+            "email": {
+                "position": 6,
+                "type": "varchar",
+                "null": 1,
+                "key": null,
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL",
+                "maxlength": 100
+            },
+            "portable": {
+                "position": 7,
+                "type": "varchar",
+                "null": 1,
+                "key": null,
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL",
+                "maxlength": 15
+            },
+            "cfg": {
+                "position": 8,
+                "type": "json",
+                "null": 1,
+                "key": null,
+                "extra": "",
+                "signed": true,
+                "virtual": false,
+                "generation": "",
+                "default": "NULL"
+            }
+        }
+    }
+}
