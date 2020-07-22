@@ -5,7 +5,7 @@
                 "columns": [
                     "id"
                 ],
-                "ref_db": "apst_app",
+                "ref_db": null,
                 "ref_table": "bbn_history_uids",
                 "ref_column": "bbn_uid",
                 "constraint": "bbn_addresses_ibfk_1",
@@ -220,7 +220,7 @@
                 "columns": [
                     "id"
                 ],
-                "ref_db": "apst_app",
+                "ref_db": null,
                 "ref_table": "bbn_history_uids",
                 "ref_column": "bbn_uid",
                 "constraint": "bbn_people_ibfk_1",
