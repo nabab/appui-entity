@@ -13,9 +13,9 @@
                 "delete": "CASCADE",
                 "unique": 1
             },
-            "cp": {
+            "pc": {
                 "columns": [
-                    "cp"
+                    "pc"
                 ],
                 "ref_db": null,
                 "ref_table": null,
@@ -25,9 +25,9 @@
                 "delete": null,
                 "unique": 0
             },
-            "ville": {
+            "city": {
                 "columns": [
-                    "ville"
+                    "city"
                 ],
                 "ref_db": null,
                 "ref_table": null,
@@ -90,11 +90,11 @@
             "id": [
                 "PRIMARY"
             ],
-            "cp": [
-                "cp"
+            "pc": [
+                "pc"
             ],
-            "ville": [
-                "ville"
+            "city": [
+                "city"
             ],
             "email": [
                 "email"
@@ -121,7 +121,7 @@
                 "generation": "",
                 "maxlength": 16
             },
-            "adresse": {
+            "address": {
                 "position": 2,
                 "type": "tinytext",
                 "null": 0,
@@ -131,7 +131,7 @@
                 "virtual": false,
                 "generation": ""
             },
-            "cp": {
+            "pc": {
                 "position": 3,
                 "type": "varchar",
                 "null": 0,
@@ -142,7 +142,7 @@
                 "generation": "",
                 "maxlength": 5
             },
-            "ville": {
+            "city": {
                 "position": 4,
                 "type": "varchar",
                 "null": 0,
@@ -209,7 +209,7 @@
                 "extra": "VIRTUAL GENERATED",
                 "signed": true,
                 "virtual": true,
-                "generation": "concat(`adresse`,'\\n',`cp`,' ',`ville`)",
+                "generation": "concat(`address`,'\\n',`pc`,' ',`city`)",
                 "default": "NULL"
             }
         }
@@ -246,7 +246,7 @@
                 "generation": "",
                 "maxlength": 16
             },
-            "nom": {
+            "name": {
                 "position": 2,
                 "type": "varchar",
                 "null": 0,
@@ -257,7 +257,7 @@
                 "generation": "",
                 "maxlength": 100
             },
-            "prenom": {
+            "surname": {
                 "position": 3,
                 "type": "varchar",
                 "null": 0,
@@ -269,7 +269,7 @@
                 "default": "",
                 "maxlength": 25
             },
-            "civilite": {
+            "title": {
                 "position": 4,
                 "type": "enum",
                 "null": 1,
@@ -298,7 +298,7 @@
                 "extra": "VIRTUAL GENERATED",
                 "signed": true,
                 "virtual": true,
-                "generation": "trim(concat(ifnull(`civilite`,''),' ',`prenom`,' ',`nom`))",
+                "generation": "trim(concat(ifnull(`title`,''),' ',`surname`,' ',`name`))",
                 "default": "NULL",
                 "maxlength": 255
             },
@@ -314,7 +314,7 @@
                 "default": "NULL",
                 "maxlength": 100
             },
-            "portable": {
+            "tel": {
                 "position": 7,
                 "type": "varchar",
                 "null": 1,
