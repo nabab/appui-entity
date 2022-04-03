@@ -1,0 +1,13 @@
+{
+  "cfg": {
+    "show_code": 1,
+    "show_icon": 1,
+    "allow_children": 1,
+    "i18n": "en"
+  },
+  "text": "Entity",
+  "code": "entity",
+  "id_alias": ["plugin", "list", "templates", "option", "appui"],
+  "icon": "nf nf-dev-codepen",
+  "plugin": true
+}
