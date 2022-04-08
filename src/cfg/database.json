@@ -111,7 +111,6 @@
         },
         "fields": {
             "id": {
-                "position": 1,
                 "type": "binary",
                 "null": 0,
                 "key": "PRI",
@@ -119,7 +118,6 @@
                 "maxlength": 16
             },
             "address": {
-                "position": 2,
                 "type": "tinytext",
                 "null": 0,
                 "key": null,
@@ -127,7 +125,6 @@
                 "generation": ""
             },
             "pc": {
-                "position": 3,
                 "type": "varchar",
                 "null": 0,
                 "key": "MUL",
@@ -135,7 +132,6 @@
                 "maxlength": 5
             },
             "city": {
-                "position": 4,
                 "type": "varchar",
                 "null": 0,
                 "key": "MUL",
@@ -143,7 +139,6 @@
                 "maxlength": 40
             },
             "id_country": {
-                "position": 5,
                 "type": "binary",
                 "null": 1,
                 "key": "MUL",
@@ -152,7 +147,6 @@
                 "maxlength": 16
             },
             "tel": {
-                "position": 6,
                 "type": "varchar",
                 "null": 1,
                 "key": "MUL",
@@ -161,7 +155,6 @@
                 "maxlength": 10
             },
             "fax": {
-                "position": 7,
                 "type": "varchar",
                 "null": 1,
                 "key": "MUL",
@@ -170,7 +163,6 @@
                 "maxlength": 10
             },
             "email": {
-                "position": 8,
                 "type": "varchar",
                 "null": 1,
                 "key": "MUL",
@@ -179,7 +171,6 @@
                 "maxlength": 100
             },
             "fulladdress": {
-                "position": 9,
                 "type": "text",
                 "null": 1,
                 "key": null,
@@ -213,7 +204,6 @@
         },
         "fields": {
             "id": {
-                "position": 1,
                 "type": "binary",
                 "null": 0,
                 "key": "PRI",
@@ -221,7 +211,6 @@
                 "maxlength": 16
             },
             "name": {
-                "position": 2,
                 "type": "varchar",
                 "null": 0,
                 "key": null,
@@ -229,7 +218,6 @@
                 "maxlength": 100
             },
             "surname": {
-                "position": 3,
                 "type": "varchar",
                 "null": 0,
                 "key": null,
@@ -238,7 +226,6 @@
                 "maxlength": 25
             },
             "title": {
-                "position": 4,
                 "type": "enum",
                 "null": 1,
                 "key": null,
@@ -257,7 +244,6 @@
                 ]
             },
             "fullname": {
-                "position": 5,
                 "type": "varchar",
                 "null": 1,
                 "key": null,
@@ -269,7 +255,6 @@
                 "maxlength": 255
             },
             "email": {
-                "position": 6,
                 "type": "varchar",
                 "null": 1,
                 "key": null,
@@ -278,7 +263,6 @@
                 "maxlength": 100
             },
             "tel": {
-                "position": 7,
                 "type": "varchar",
                 "null": 1,
                 "key": null,
@@ -287,7 +271,6 @@
                 "maxlength": 15
             },
             "cfg": {
-                "position": 8,
                 "type": "json",
                 "null": 1,
                 "key": null,
