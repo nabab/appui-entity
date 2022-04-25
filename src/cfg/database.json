@@ -5,7 +5,6 @@
                 "columns": [
                     "id"
                 ],
-                "ref_db": null,
                 "ref_table": "bbn_history_uids",
                 "ref_column": "bbn_uid",
                 "constraint": "bbn_addresses_ibfk_1",
@@ -17,72 +16,41 @@
                 "columns": [
                     "pc"
                 ],
-                "ref_db": null,
-                "ref_table": null,
-                "ref_column": null,
-                "constraint": null,
-                "update": null,
-                "delete": null,
                 "unique": 0
             },
             "city": {
                 "columns": [
                     "city"
                 ],
-                "ref_db": null,
-                "ref_table": null,
-                "ref_column": null,
-                "constraint": null,
-                "update": null,
-                "delete": null,
                 "unique": 0
             },
             "email": {
                 "columns": [
                     "email"
                 ],
-                "ref_db": null,
-                "ref_table": null,
-                "ref_column": null,
-                "constraint": null,
-                "update": null,
-                "delete": null,
                 "unique": 0
             },
             "tel": {
                 "columns": [
                     "tel"
                 ],
-                "ref_db": null,
-                "ref_table": null,
-                "ref_column": null,
-                "constraint": null,
-                "update": null,
-                "delete": null,
                 "unique": 0
             },
             "fax": {
                 "columns": [
                     "fax"
                 ],
-                "ref_db": null,
-                "ref_table": null,
-                "ref_column": null,
-                "constraint": null,
-                "update": null,
-                "delete": null,
                 "unique": 0
             },
             "id_country": {
                 "columns": [
                     "id_country"
                 ],
-                "ref_db": null,
-                "ref_table": null,
-                "ref_column": null,
-                "constraint": null,
-                "update": null,
-                "delete": null,
+                "ref_table": "bbn_options",
+                "ref_column": "id",
+                "constraint": "bbn_options_ibfk1",
+                "update": "CASCADE",
+                "delete": "RESTRICT",
                 "unique": 0
             }
         },
@@ -188,7 +156,6 @@
                 "columns": [
                     "id"
                 ],
-                "ref_db": null,
                 "ref_table": "bbn_history_uids",
                 "ref_column": "bbn_uid",
                 "constraint": "bbn_people_ibfk_1",
