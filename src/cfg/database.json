@@ -88,7 +88,6 @@
       "address": {
         "type": "tinytext",
         "null": 0,
-        "key": null,
         "signed": true,
         "generation": ""
       },
@@ -145,12 +144,12 @@
       "fulladdress": {
         "type": "text",
         "null": 1,
-        "key": null,
         "extra": "VIRTUAL GENERATED",
         "signed": true,
         "virtual": true,
         "generation": "concat(`address`,'\\n',`pc`,' ',`city`)",
-        "default": "NULL"
+        "default": "NULL",
+        "defaultExpression": 1
       }
     }
   },
@@ -184,14 +183,12 @@
       "name": {
         "type": "varchar",
         "null": 0,
-        "key": null,
         "signed": true,
         "maxlength": 100
       },
       "surname": {
         "type": "varchar",
         "null": 0,
-        "key": null,
         "signed": true,
         "default": "",
         "maxlength": 25
@@ -199,10 +196,10 @@
       "title": {
         "type": "enum",
         "null": 1,
-        "key": null,
         "extra": "'M','MME','MLLE','M\/MME','ME','MMES','MM','I'",
         "signed": true,
         "default": "NULL",
+        "defaultExpression": 1,
         "values": [
           "M",
           "MME",
@@ -217,7 +214,6 @@
       "fullname": {
         "type": "varchar",
         "null": 1,
-        "key": null,
         "extra": "VIRTUAL GENERATED",
         "signed": true,
         "virtual": true,
@@ -229,7 +225,6 @@
       "email": {
         "type": "varchar",
         "null": 1,
-        "key": null,
         "signed": true,
         "default": "NULL",
         "defaultExpression": 1,
@@ -238,7 +233,6 @@
       "tel": {
         "type": "varchar",
         "null": 1,
-        "key": null,
         "signed": true,
         "default": "NULL",
         "defaultExpression": 1,
@@ -247,9 +241,9 @@
       "cfg": {
         "type": "json",
         "null": 1,
-        "key": null,
         "signed": true,
-        "default": "NULL"
+        "default": "NULL",
+        "defaultExpression": 1
       }
     }
   }
