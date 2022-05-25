@@ -1,249 +1,256 @@
 {
-    "bbn_addresses": {
-        "keys": {
-            "PRIMARY": {
-                "columns": [
-                    "id"
-                ],
-                "ref_table": "bbn_history_uids",
-                "ref_column": "bbn_uid",
-                "constraint": "bbn_addresses_ibfk_1",
-                "update": "CASCADE",
-                "delete": "CASCADE",
-                "unique": 1
-            },
-            "pc": {
-                "columns": [
-                    "pc"
-                ],
-                "unique": 0
-            },
-            "city": {
-                "columns": [
-                    "city"
-                ],
-                "unique": 0
-            },
-            "email": {
-                "columns": [
-                    "email"
-                ],
-                "unique": 0
-            },
-            "tel": {
-                "columns": [
-                    "tel"
-                ],
-                "unique": 0
-            },
-            "fax": {
-                "columns": [
-                    "fax"
-                ],
-                "unique": 0
-            },
-            "id_country": {
-                "columns": [
-                    "id_country"
-                ],
-                "ref_table": "bbn_options",
-                "ref_column": "id",
-                "constraint": "bbn_options_ibfk1",
-                "update": "CASCADE",
-                "delete": "RESTRICT",
-                "unique": 0
-            }
-        },
-        "cols": {
-            "id": [
-                "PRIMARY"
-            ],
-            "pc": [
-                "pc"
-            ],
-            "city": [
-                "city"
-            ],
-            "email": [
-                "email"
-            ],
-            "tel": [
-                "tel"
-            ],
-            "fax": [
-                "fax"
-            ],
-            "id_country": [
-                "id_country"
-            ]
-        },
-        "fields": {
-            "id": {
-                "type": "binary",
-                "null": 0,
-                "key": "PRI",
-                "signed": true,
-                "maxlength": 16
-            },
-            "address": {
-                "type": "tinytext",
-                "null": 0,
-                "key": null,
-                "signed": true,
-                "generation": ""
-            },
-            "pc": {
-                "type": "varchar",
-                "null": 0,
-                "key": "MUL",
-                "signed": true,
-                "maxlength": 5
-            },
-            "city": {
-                "type": "varchar",
-                "null": 0,
-                "key": "MUL",
-                "signed": true,
-                "maxlength": 40
-            },
-            "id_country": {
-                "type": "binary",
-                "null": 1,
-                "key": "MUL",
-                "signed": true,
-                "default": "NULL",
-                "maxlength": 16
-            },
-            "tel": {
-                "type": "varchar",
-                "null": 1,
-                "key": "MUL",
-                "signed": true,
-                "default": "NULL",
-                "maxlength": 10
-            },
-            "fax": {
-                "type": "varchar",
-                "null": 1,
-                "key": "MUL",
-                "signed": true,
-                "default": "NULL",
-                "maxlength": 10
-            },
-            "email": {
-                "type": "varchar",
-                "null": 1,
-                "key": "MUL",
-                "signed": true,
-                "default": "NULL",
-                "maxlength": 100
-            },
-            "fulladdress": {
-                "type": "text",
-                "null": 1,
-                "key": null,
-                "extra": "VIRTUAL GENERATED",
-                "signed": true,
-                "virtual": true,
-                "generation": "concat(`address`,'\\n',`pc`,' ',`city`)",
-                "default": "NULL"
-            }
-        }
+  "bbn_addresses": {
+    "keys": {
+      "PRIMARY": {
+        "columns": [
+          "id"
+        ],
+        "ref_table": "bbn_history_uids",
+        "ref_column": "bbn_uid",
+        "constraint": "bbn_addresses_ibfk_1",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 1
+      },
+      "pc": {
+        "columns": [
+          "pc"
+        ],
+        "unique": 0
+      },
+      "city": {
+        "columns": [
+          "city"
+        ],
+        "unique": 0
+      },
+      "email": {
+        "columns": [
+          "email"
+        ],
+        "unique": 0
+      },
+      "tel": {
+        "columns": [
+          "tel"
+        ],
+        "unique": 0
+      },
+      "fax": {
+        "columns": [
+          "fax"
+        ],
+        "unique": 0
+      },
+      "id_country": {
+        "columns": [
+          "id_country"
+        ],
+        "ref_table": "bbn_options",
+        "ref_column": "id",
+        "constraint": "bbn_options_ibfk1",
+        "update": "CASCADE",
+        "delete": "RESTRICT",
+        "unique": 0
+      }
     },
-    "bbn_people": {
-        "keys": {
-            "PRIMARY": {
-                "columns": [
-                    "id"
-                ],
-                "ref_table": "bbn_history_uids",
-                "ref_column": "bbn_uid",
-                "constraint": "bbn_people_ibfk_1",
-                "update": "CASCADE",
-                "delete": "CASCADE",
-                "unique": 1
-            }
-        },
-        "cols": {
-            "id": [
-                "PRIMARY"
-            ]
-        },
-        "fields": {
-            "id": {
-                "type": "binary",
-                "null": 0,
-                "key": "PRI",
-                "signed": true,
-                "maxlength": 16
-            },
-            "name": {
-                "type": "varchar",
-                "null": 0,
-                "key": null,
-                "signed": true,
-                "maxlength": 100
-            },
-            "surname": {
-                "type": "varchar",
-                "null": 0,
-                "key": null,
-                "signed": true,
-                "default": "",
-                "maxlength": 25
-            },
-            "title": {
-                "type": "enum",
-                "null": 1,
-                "key": null,
-                "extra": "'M','MME','MLLE','M\/MME','ME','MMES','MM','I'",
-                "signed": true,
-                "default": "NULL",
-                "values": [
-                    "M",
-                    "MME",
-                    "MLLE",
-                    "M\/MME",
-                    "ME",
-                    "MMES",
-                    "MM",
-                    "I"
-                ]
-            },
-            "fullname": {
-                "type": "varchar",
-                "null": 1,
-                "key": null,
-                "extra": "VIRTUAL GENERATED",
-                "signed": true,
-                "virtual": true,
-                "generation": "trim(concat(ifnull(`title`,''),' ',`surname`,' ',`name`))",
-                "default": "NULL",
-                "maxlength": 255
-            },
-            "email": {
-                "type": "varchar",
-                "null": 1,
-                "key": null,
-                "signed": true,
-                "default": "NULL",
-                "maxlength": 100
-            },
-            "tel": {
-                "type": "varchar",
-                "null": 1,
-                "key": null,
-                "signed": true,
-                "default": "NULL",
-                "maxlength": 15
-            },
-            "cfg": {
-                "type": "json",
-                "null": 1,
-                "key": null,
-                "signed": true,
-                "default": "NULL"
-            }
-        }
+    "cols": {
+      "id": [
+        "PRIMARY"
+      ],
+      "pc": [
+        "pc"
+      ],
+      "city": [
+        "city"
+      ],
+      "email": [
+        "email"
+      ],
+      "tel": [
+        "tel"
+      ],
+      "fax": [
+        "fax"
+      ],
+      "id_country": [
+        "id_country"
+      ]
+    },
+    "fields": {
+      "id": {
+        "type": "binary",
+        "null": 0,
+        "key": "PRI",
+        "signed": true,
+        "maxlength": 16
+      },
+      "address": {
+        "type": "tinytext",
+        "null": 0,
+        "key": null,
+        "signed": true,
+        "generation": ""
+      },
+      "pc": {
+        "type": "varchar",
+        "null": 0,
+        "key": "MUL",
+        "signed": true,
+        "maxlength": 5
+      },
+      "city": {
+        "type": "varchar",
+        "null": 0,
+        "key": "MUL",
+        "signed": true,
+        "maxlength": 40
+      },
+      "id_country": {
+        "type": "binary",
+        "null": 1,
+        "key": "MUL",
+        "signed": true,
+        "default": "NULL",
+        "defaultExpression": 1,
+        "maxlength": 16
+      },
+      "tel": {
+        "type": "varchar",
+        "null": 1,
+        "key": "MUL",
+        "signed": true,
+        "default": "NULL",
+        "defaultExpression": 1,
+        "maxlength": 10
+      },
+      "fax": {
+        "type": "varchar",
+        "null": 1,
+        "key": "MUL",
+        "signed": true,
+        "default": "NULL",
+        "defaultExpression": 1,
+        "maxlength": 10
+      },
+      "email": {
+        "type": "varchar",
+        "null": 1,
+        "key": "MUL",
+        "signed": true,
+        "default": "NULL",
+        "defaultExpression": 1,
+        "maxlength": 100
+      },
+      "fulladdress": {
+        "type": "text",
+        "null": 1,
+        "key": null,
+        "extra": "VIRTUAL GENERATED",
+        "signed": true,
+        "virtual": true,
+        "generation": "concat(`address`,'\\n',`pc`,' ',`city`)",
+        "default": "NULL"
+      }
     }
+  },
+  "bbn_people": {
+    "keys": {
+      "PRIMARY": {
+        "columns": [
+          "id"
+        ],
+        "ref_table": "bbn_history_uids",
+        "ref_column": "bbn_uid",
+        "constraint": "bbn_people_ibfk_1",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 1
+      }
+    },
+    "cols": {
+      "id": [
+        "PRIMARY"
+      ]
+    },
+    "fields": {
+      "id": {
+        "type": "binary",
+        "null": 0,
+        "key": "PRI",
+        "signed": true,
+        "maxlength": 16
+      },
+      "name": {
+        "type": "varchar",
+        "null": 0,
+        "key": null,
+        "signed": true,
+        "maxlength": 100
+      },
+      "surname": {
+        "type": "varchar",
+        "null": 0,
+        "key": null,
+        "signed": true,
+        "default": "",
+        "maxlength": 25
+      },
+      "title": {
+        "type": "enum",
+        "null": 1,
+        "key": null,
+        "extra": "'M','MME','MLLE','M\/MME','ME','MMES','MM','I'",
+        "signed": true,
+        "default": "NULL",
+        "values": [
+          "M",
+          "MME",
+          "MLLE",
+          "M\/MME",
+          "ME",
+          "MMES",
+          "MM",
+          "I"
+        ]
+      },
+      "fullname": {
+        "type": "varchar",
+        "null": 1,
+        "key": null,
+        "extra": "VIRTUAL GENERATED",
+        "signed": true,
+        "virtual": true,
+        "generation": "trim(concat(ifnull(`title`,''),' ',`surname`,' ',`name`))",
+        "default": "NULL",
+        "defaultExpression": 1,
+        "maxlength": 255
+      },
+      "email": {
+        "type": "varchar",
+        "null": 1,
+        "key": null,
+        "signed": true,
+        "default": "NULL",
+        "defaultExpression": 1,
+        "maxlength": 100
+      },
+      "tel": {
+        "type": "varchar",
+        "null": 1,
+        "key": null,
+        "signed": true,
+        "default": "NULL",
+        "defaultExpression": 1,
+        "maxlength": 15
+      },
+      "cfg": {
+        "type": "json",
+        "null": 1,
+        "key": null,
+        "signed": true,
+        "default": "NULL"
+      }
+    }
+  }
 }
