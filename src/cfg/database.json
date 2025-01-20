@@ -7,7 +7,6 @@
         ],
         "ref_table": "bbn_history_uids",
         "ref_column": "bbn_uid",
-        "constraint": "bbn_addresses_ibfk_1",
         "update": "CASCADE",
         "delete": "CASCADE",
         "unique": 1
@@ -36,19 +35,12 @@
         ],
         "unique": 0
       },
-      "fax": {
-        "columns": [
-          "fax"
-        ],
-        "unique": 0
-      },
       "id_country": {
         "columns": [
           "id_country"
         ],
         "ref_table": "bbn_options",
         "ref_column": "id",
-        "constraint": "bbn_options_ibfk1",
         "update": "CASCADE",
         "delete": "RESTRICT",
         "unique": 0
@@ -144,7 +136,7 @@
       }
     }
   },
-  "bbn_people": {
+  "bbn_entities": {
     "keys": {
       "PRIMARY": {
         "columns": [
@@ -152,7 +144,6 @@
         ],
         "ref_table": "bbn_history_uids",
         "ref_column": "bbn_uid",
-        "constraint": "bbn_people_ibfk_1",
         "update": "CASCADE",
         "delete": "CASCADE",
         "unique": 1
@@ -165,69 +156,547 @@
     },
     "fields": {
       "id": {
+        "position": 1,
         "type": "binary",
         "null": 0,
         "key": "PRI",
         "maxlength": 16
       },
       "name": {
+        "position": 2,
         "type": "varchar",
         "null": 0,
+        "key": null,
+        "maxlength": 100
+      }
+    }
+  },
+  "bbn_identities": {
+    "keys": {
+      "PRIMARY": {
+        "columns": [
+          "id"
+        ],
+        "ref_table": "bbn_history_uids",
+        "ref_column": "bbn_uid",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 1
+      }
+    },
+    "cols": {
+      "id": [
+        "PRIMARY"
+      ]
+    },
+    "fields": {
+      "id": {
+        "position": 1,
+        "type": "binary",
+        "null": 0,
+        "key": "PRI",
+        "maxlength": 16
+      },
+      "name": {
+        "position": 2,
+        "type": "varchar",
+        "null": 0,
+        "key": null,
         "maxlength": 100
       },
-      "surname": {
+      "fname": {
+        "position": 3,
         "type": "varchar",
-        "null": 0,
-        "default": "",
+        "null": 1,
+        "key": null,
+        "default": "NULL",
+        "defaultExpression": false,
         "maxlength": 25
       },
-      "title": {
+      "civ": {
+        "position": 4,
         "type": "enum",
         "null": 1,
-        "extra": "'M','MME','MLLE','M\/MME','ME','MMES','MM',''",
+        "key": null,
+        "extra": "'MR','MRS','MISS'",
         "default": "NULL",
-        "defaultExpression": 1,
+        "defaultExpression": false,
         "values": [
-          "M",
-          "MME",
-          "MLLE",
-          "M\/MME",
-          "ME",
-          "MMES",
-          "MM",
-          "I"
+          "MR",
+          "MRS",
+          "MISS"
         ]
       },
       "fullname": {
+        "position": 5,
         "type": "varchar",
         "null": 1,
+        "key": null,
         "extra": "VIRTUAL GENERATED",
         "virtual": true,
-        "generation": "trim(concat(ifnull(`title`,''),' ',`surname`,' ',`name`))",
+        "generation": "trim(concat(ifnull(`civ`,''),' ',ifnull(`fname`,''),' ',`name`))",
         "default": "NULL",
-        "defaultExpression": 1,
-        "maxlength": 255
-      },
-      "email": {
-        "type": "varchar",
-        "null": 1,
-        "default": "NULL",
-        "defaultExpression": 1,
-        "maxlength": 100
-      },
-      "tel": {
-        "type": "varchar",
-        "null": 1,
-        "default": "NULL",
-        "defaultExpression": 1,
-        "maxlength": 15
+        "defaultExpression": false,
+        "maxlength": 135
       },
       "cfg": {
-        "type": "json",
+        "position": 6,
+        "type": "longtext",
         "null": 1,
+        "key": null,
         "default": "NULL",
-        "defaultExpression": 1
+        "defaultExpression": false
       }
     }
-  }
+  },
+  "bbn_entities_links": {
+    "keys": {
+      "PRIMARY": {
+        "columns": [
+          "id"
+        ],
+        "ref_table": "bbn_history_uids",
+        "ref_column": "bbn_uid",
+        "update": "CASCADE",
+        "delete": "CASCADE"
+      },
+      "id_option": {
+        "columns": [
+          "id_option"
+        ],
+        "ref_table": "bbn_options",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "RESTRICT",
+        "unique": 0
+      },
+      "id_identity": {
+        "columns": [
+          "id_identity"
+        ],
+        "ref_table": "bbn_identities",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 0
+      },
+      "id_address": {
+        "columns": [
+          "id_address"
+        ],
+        "ref_table": "bbn_addresses",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 0
+      },
+      "link_type": {
+        "columns": [
+          "link_type"
+        ],
+        "ref_table": "bbn_options",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "RESTRICT",
+        "unique": 0
+      },
+      "id_entity": {
+        "columns": [
+          "id_entity"
+        ],
+        "ref_table": "bbn_entities",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 0
+      }
+    },
+    "cols": {
+      "id": [
+        "PRIMARY"
+      ],
+      "id_option": [
+        "id_option"
+      ],
+      "id_identity": [
+        "id_identity"
+      ],
+      "id_address": [
+        "id_address"
+      ],
+      "link_type": [
+        "link_type"
+      ],
+      "id_entity": [
+        "id_entity"
+      ]
+    },
+    "fields": {
+      "id": {
+        "position": 1,
+        "type": "binary",
+        "null": 0,
+        "key": "PRI",
+        "maxlength": 16
+      },
+      "link_type": {
+        "position": 2,
+        "type": "binary",
+        "null": 0,
+        "key": "MUL",
+        "maxlength": 16
+      },
+      "id_entity": {
+        "position": 3,
+        "type": "binary",
+        "null": 0,
+        "key": "MUL",
+        "maxlength": 16
+      },
+      "id_identity": {
+        "position": 4,
+        "type": "binary",
+        "null": 1,
+        "key": "MUL",
+        "default": "NULL",
+        "defaultExpression": false,
+        "maxlength": 16
+      },
+      "id_address": {
+        "position": 5,
+        "type": "binary",
+        "null": 1,
+        "key": "MUL",
+        "default": "NULL",
+        "defaultExpression": false,
+        "maxlength": 16
+      },
+      "id_option": {
+        "position": 6,
+        "type": "binary",
+        "null": 1,
+        "key": "MUL",
+        "default": "NULL",
+        "defaultExpression": false,
+        "maxlength": 16
+      },
+      "cfg": {
+        "position": 7,
+        "type": "longtext",
+        "null": 1,
+        "key": null,
+        "default": "NULL",
+        "defaultExpression": false
+      }
+    }
+  },
+  "bbn_entities_options": {
+    "keys": {
+      "PRIMARY": {
+        "columns": [
+          "id"
+        ],
+        "ref_table": "bbn_history_uids",
+        "ref_column": "bbn_uid",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 1
+      },
+      "id_type": {
+        "columns": [
+          "id_type"
+        ],
+        "ref_table": "bbn_options",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "RESTRICT",
+        "unique": 0
+      },
+      "id_option": {
+        "columns": [
+          "id_option"
+        ],
+        "ref_table": "bbn_options",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "RESTRICT",
+        "unique": 0
+      },
+      "id_entity": {
+        "columns": [
+          "id_entity"
+        ],
+        "ref_table": "apst_adherents",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 0
+      }
+    },
+    "cols": {
+      "id": [
+        "PRIMARY"
+      ],
+      "id_type": [
+        "id_type"
+      ],
+      "id_option": [
+        "id_option"
+      ],
+      "id_entity": [
+        "id_entity"
+      ]
+    },
+    "fields": {
+      "id": {
+        "position": 1,
+        "type": "binary",
+        "null": 0,
+        "key": "PRI",
+        "maxlength": 16
+      },
+      "id_entity": {
+        "position": 2,
+        "type": "binary",
+        "null": 0,
+        "key": "MUL",
+        "maxlength": 16
+      },
+      "id_type": {
+        "position": 3,
+        "type": "binary",
+        "null": 0,
+        "key": "MUL",
+        "maxlength": 16
+      },
+      "id_option": {
+        "position": 4,
+        "type": "binary",
+        "null": 0,
+        "key": "MUL",
+        "maxlength": 16
+      }
+    }
+  },
+  "bbn_identities_links": {
+    "keys": {
+      "PRIMARY": {
+        "columns": [
+          "id"
+        ],
+        "ref_table": "bbn_history_uids",
+        "ref_column": "bbn_uid",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 1
+      },
+      "id_parent": {
+        "columns": [
+          "id_parent"
+        ],
+        "ref_table": "bbn_identities",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 0
+      },
+      "id_child": {
+        "columns": [
+          "id_child"
+        ],
+        "ref_table": "bbn_identities",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 0
+      },
+      "id_link": {
+        "columns": [
+          "id_link"
+        ],
+        "ref_table": "bbn_options",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "RESTRICT",
+        "unique": 0
+      }
+    },
+    "cols": {
+      "id": [
+        "PRIMARY"
+      ],
+      "id_parent": [
+        "id_parent"
+      ],
+      "id_child": [
+        "id_child"
+      ],
+      "id_link": [
+        "id_link"
+      ]
+    },
+    "fields": {
+      "id": {
+        "position": 1,
+        "type": "binary",
+        "null": 0,
+        "key": "PRI",
+        "maxlength": 16
+      },
+      "id_link": {
+        "position": 2,
+        "type": "binary",
+        "null": 0,
+        "key": "MUL",
+        "maxlength": 16
+      },
+      "id_parent": {
+        "position": 3,
+        "type": "binary",
+        "null": 0,
+        "key": "MUL",
+        "maxlength": 16
+      },
+      "id_child": {
+        "position": 4,
+        "type": "binary",
+        "null": 0,
+        "key": "MUL",
+        "maxlength": 16
+      }
+    }
+  },
+  "bbn_uauth": {
+    "keys": {
+        "PRIMARY": {
+            "columns": [
+                "id"
+            ],
+            "ref_table": "bbn_history_uids",
+            "ref_column": "bbn_uid",
+            "update": "CASCADE",
+            "delete": "CASCADE",
+            "unique": 1
+        },
+        "typology": {
+            "columns": [
+                "typology",
+                "value"
+            ],
+            "unique": 1
+        },
+        "value": {
+            "columns": [
+                "value"
+            ],
+            "unique": 0
+        }
+    },
+    "cols": {
+        "id": [
+            "PRIMARY"
+        ],
+        "typology": [
+            "typology"
+        ],
+        "value": [
+            "typology",
+            "value"
+        ]
+    },
+    "fields": {
+        "id": {
+            "position": 1,
+            "type": "binary",
+            "null": 0,
+            "key": "PRI",
+            "maxlength": 16
+        },
+        "typology": {
+            "position": 2,
+            "type": "binary",
+            "null": 0,
+            "key": "MUL",
+            "maxlength": 16
+        },
+        "value": {
+            "position": 3,
+            "type": "varchar",
+            "null": 0,
+            "key": "MUL",
+            "maxlength": 100
+        }
+    }
+  },
+  "bbn_identities_uauth": {
+      "keys": {
+          "PRIMARY": {
+              "columns": [
+                  "id"
+              ],
+              "ref_table": "bbn_history_uids",
+              "ref_column": "bbn_uid",
+              "update": "CASCADE",
+              "delete": "CASCADE",
+              "unique": 1
+          },
+          "id_identity": {
+              "columns": [
+                  "id_identity"
+              ],
+              "ref_table": "bbn_identities",
+              "ref_column": "id",
+              "update": "CASCADE",
+              "delete": "CASCADE",
+              "unique": 0
+          },
+          "id_uauth": {
+              "columns": [
+                  "id_uauth"
+              ],
+              "ref_table": "bbn_uauth",
+              "ref_column": "id",
+              "update": "CASCADE",
+              "delete": "CASCADE",
+              "unique": 0
+          }
+      },
+      "cols": {
+          "id": [
+              "PRIMARY"
+          ],
+          "id_identity": [
+              "id_identity"
+          ],
+          "id_uauth": [
+              "id_uauth"
+          ]
+      },
+      "fields": {
+          "id": {
+              "type": "binary",
+              "null": 0,
+              "key": "PRI",
+              "maxlength": 16
+          },
+          "id_uauth": {
+              "type": "binary",
+              "null": 0,
+              "key": "MUL",
+              "maxlength": 16
+          },
+          "id_identity": {
+              "type": "binary",
+              "null": 0,
+              "key": "MUL",
+              "maxlength": 16
+          },
+          "cfg": {
+              "type": "longtext",
+              "null": 1,
+              "default": "NULL",
+              "defaultExpression": false
+          }
+      }
+  }  
 }
