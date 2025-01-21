@@ -258,7 +258,8 @@
         "ref_table": "bbn_history_uids",
         "ref_column": "bbn_uid",
         "update": "CASCADE",
-        "delete": "CASCADE"
+        "delete": "CASCADE",
+        "unique": 1
       },
       "id_option": {
         "columns": [
