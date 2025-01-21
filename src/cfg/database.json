@@ -210,7 +210,7 @@
         "null": 1,
         "key": null,
         "default": "NULL",
-        "defaultExpression": false,
+        "defaultExpression": true,
         "maxlength": 25
       },
       "civ": {
@@ -220,7 +220,7 @@
         "key": null,
         "extra": "'MR','MRS','MISS'",
         "default": "NULL",
-        "defaultExpression": false,
+        "defaultExpression": true,
         "values": [
           "MR",
           "MRS",
@@ -236,7 +236,7 @@
         "virtual": true,
         "generation": "trim(concat(ifnull(`civ`,''),' ',ifnull(`fname`,''),' ',`name`))",
         "default": "NULL",
-        "defaultExpression": false,
+        "defaultExpression": true,
         "maxlength": 135
       },
       "cfg": {
@@ -245,7 +245,7 @@
         "null": 1,
         "key": null,
         "default": "NULL",
-        "defaultExpression": false
+        "defaultExpression": true
       }
     }
   },
@@ -359,7 +359,7 @@
         "null": 1,
         "key": "MUL",
         "default": "NULL",
-        "defaultExpression": false,
+        "defaultExpression": true,
         "maxlength": 16
       },
       "id_address": {
@@ -368,7 +368,7 @@
         "null": 1,
         "key": "MUL",
         "default": "NULL",
-        "defaultExpression": false,
+        "defaultExpression": true,
         "maxlength": 16
       },
       "id_option": {
@@ -377,7 +377,7 @@
         "null": 1,
         "key": "MUL",
         "default": "NULL",
-        "defaultExpression": false,
+        "defaultExpression": true,
         "maxlength": 16
       },
       "cfg": {
@@ -386,7 +386,7 @@
         "null": 1,
         "key": null,
         "default": "NULL",
-        "defaultExpression": false
+        "defaultExpression": true
       }
     }
   },
