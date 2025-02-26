@@ -696,7 +696,7 @@
               "type": "longtext",
               "null": 1,
               "default": "NULL",
-              "defaultExpression": false
+              "defaultExpression": 1
           }
       }
   }  
