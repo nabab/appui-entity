@@ -127,12 +127,9 @@
       },
       "fulladdress": {
         "type": "text",
-        "null": 1,
         "extra": "VIRTUAL GENERATED",
         "virtual": true,
-        "generation": "concat(`address`,'\\n',`pc`,' ',`city`)",
-        "default": "NULL",
-        "defaultExpression": 1
+        "generation": "concat(`address`,'\\n',`pc`,' ',`city`)"
       }
     }
   },
