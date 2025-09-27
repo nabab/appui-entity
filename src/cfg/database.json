@@ -227,13 +227,10 @@
       "fullname": {
         "position": 5,
         "type": "varchar",
-        "null": 1,
         "key": null,
         "extra": "VIRTUAL GENERATED",
         "virtual": true,
         "generation": "trim(concat(ifnull(`civ`,''),' ',ifnull(`fname`,''),' ',`name`))",
-        "default": "NULL",
-        "defaultExpression": true,
         "maxlength": 135
       },
       "cfg": {
