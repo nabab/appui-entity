@@ -11,9 +11,9 @@
         "delete": "CASCADE",
         "unique": 1
       },
-      "pc": {
+      "postcode": {
         "columns": [
-          "pc"
+          "postcode"
         ],
         "unique": 0
       },
@@ -50,8 +50,8 @@
       "id": [
         "PRIMARY"
       ],
-      "pc": [
-        "pc"
+      "postcode": [
+        "postcode"
       ],
       "city": [
         "city"
@@ -59,11 +59,8 @@
       "email": [
         "email"
       ],
-      "tel": [
-        "tel"
-      ],
-      "fax": [
-        "fax"
+      "phone": [
+        "phone"
       ],
       "id_country": [
         "id_country"
@@ -81,7 +78,7 @@
         "null": 0,
         "generation": ""
       },
-      "pc": {
+      "postcode": {
         "type": "varchar",
         "null": 0,
         "key": "MUL",
@@ -101,15 +98,7 @@
         "defaultExpression": 1,
         "maxlength": 16
       },
-      "tel": {
-        "type": "varchar",
-        "null": 1,
-        "key": "MUL",
-        "default": "NULL",
-        "defaultExpression": 1,
-        "maxlength": 10
-      },
-      "fax": {
+      "phone": {
         "type": "varchar",
         "null": 1,
         "key": "MUL",
